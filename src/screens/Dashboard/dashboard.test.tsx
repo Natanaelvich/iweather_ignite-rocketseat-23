@@ -6,7 +6,9 @@ import { saveStorageCity } from "@libs/asyncStorage/cityStorage"
 import { mockCityAPIResponse } from "@__tests__/mocks/api/mockCityAPIResponse"
 
 describe("Screen: Dashboard", () => {
-
+  const mockDayDate = new Date('2023-07-30T14:00:00');
+  const mockNightDate = new Date('2023-07-30T02:00:00');
+    
   beforeAll(async () => {
     const city = {
       id: '1',
@@ -18,13 +20,36 @@ describe("Screen: Dashboard", () => {
     await saveStorageCity(city)
   })
 
-  it('should be show city weather', async () => {
+  it('should be show city weather is day', async () => {
+    global.Date = class extends Date {
+        constructor() {
+            super()
+          return mockDayDate;
+        }
+      } as any;
+
+    jest.spyOn(api, 'get').mockResolvedValue({ data: mockWeatherAPIResponse });
+    
+    render(<Dashboard />)
+
+    const cityName = await waitFor(() => screen.findByText(/rio do sul/i));
+    expect(cityName).toBeTruthy() 
+  })
+
+  it('should be show city weather is night', async () => {
+    global.Date = class extends Date {
+        constructor() {
+            super()
+          return mockNightDate;
+        }
+    } as any;
+
     jest.spyOn(api, 'get').mockResolvedValue({ data: mockWeatherAPIResponse });
 
     render(<Dashboard />)
 
     const cityName = await waitFor(() => screen.findByText(/rio do sul/i));
-    expect(cityName).toBeTruthy() 
+    expect(cityName).toBeTruthy()
   })
 
   it('should be show another selected weather city', async () =>{

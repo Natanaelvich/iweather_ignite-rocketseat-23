@@ -1,4 +1,5 @@
 # Iweather
+![Layout 3](https://github.com/Natanaelvich/iweather_ignite-rocketseat-23/assets/52014318/594826f3-8b70-469f-8213-3284e08f32f3)
 
 ## About
 

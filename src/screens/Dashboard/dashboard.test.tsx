@@ -9,7 +9,8 @@ describe("Screen: Dashboard", () => {
   const originalDate = Date;
   const mockDayDate = new Date('2023-07-30T14:00:00');
   const mockNightDate = new Date('2023-07-30T02:00:00');
-    
+  jest.useFakeTimers();
+
   beforeAll(async () => {
     const city = {
       id: '1',
@@ -74,6 +75,8 @@ describe("Screen: Dashboard", () => {
       const search = screen.getByTestId('search-input')
       fireEvent.changeText(search, cityName)
     }))
+
+    jest.advanceTimersByTime(500);
 
     await waitFor(() => act(() => {
       fireEvent.press(screen.getByText(cityName, { exact: false }))

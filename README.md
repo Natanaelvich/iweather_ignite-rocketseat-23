@@ -9,6 +9,9 @@ Iweather is a mobile app that shows the weather forecast for the next 5 days. Th
 <!-- emoji screenshot here  -->
 ## Screenshots 📸
 
+## Test coverage
+![image](https://github.com/Natanaelvich/iweather_ignite-rocketseat-23/assets/52014318/d9d981b4-20eb-4f24-8e6c-57851f0ae2a7)
+
 ### Android
 
 ### iOS

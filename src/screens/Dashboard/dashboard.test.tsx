@@ -6,6 +6,7 @@ import { saveStorageCity } from "@libs/asyncStorage/cityStorage"
 import { mockCityAPIResponse } from "@__tests__/mocks/api/mockCityAPIResponse"
 
 describe("Screen: Dashboard", () => {
+  const originalDate = Date;
   const mockDayDate = new Date('2023-07-30T14:00:00');
   const mockNightDate = new Date('2023-07-30T02:00:00');
     
@@ -19,6 +20,10 @@ describe("Screen: Dashboard", () => {
 
     await saveStorageCity(city)
   })
+
+  afterAll(() => {
+    global.Date = originalDate;
+  });
 
   it('should be show city weather is day', async () => {
     global.Date = class extends Date {

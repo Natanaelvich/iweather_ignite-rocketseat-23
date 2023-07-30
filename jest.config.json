@@ -21,13 +21,13 @@
     "^.+\\.svg$": "jest-transformer-svg"
   },
   "collectCoverageFrom": [
-    ".src/**/*.{ts.tsx}",
+    "./src/**/*.{ts,tsx}",
     "!./src/**/styles.ts"
   ],
   "coveragePathIgnorePatterns": [
     "./src/@types",
     "./src/styles",
-    "./src/libs/days",
+    "./src/libs/dayjs/",
     "./__tests__/coverage"
   ],
   "coverageDirectory": "./__tests__/coverage"

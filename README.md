@@ -40,5 +40,3 @@ Iweather is a mobile app that shows the weather forecast for the next 5 days. Th
 ## License
 
 This repository is licensed under the MIT License. See the [LICENSE](/LICENSE) file for details.
-
-If you're interested in learning more about DDD or need guidance on applying DDD in your software projects, this repository can be a valuable resource for you.

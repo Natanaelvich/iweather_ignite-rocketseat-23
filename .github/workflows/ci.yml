@@ -30,6 +30,12 @@ jobs:
     - name: Instalar dependências com Yarn
       run: yarn install --frozen-lockfile
 
-    - name: Realizar o build (Aqui você pode adicionar os passos para realizar o build do seu app)
-      run: |
-        # Comandos para fazer o build do seu projeto React Native.
+    - name: Setup Expo and EAS
+      uses: expo/expo-github-action@v8
+      with:
+        eas-version: latest
+        token: ${{ secrets.EXPO_TOKEN }}
+    - name: Install dependencies
+      run: npm ci
+    - name: Build on EAS
+      run: eas build --platform android --non-interactive

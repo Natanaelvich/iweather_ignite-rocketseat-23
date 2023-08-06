@@ -17,24 +17,18 @@ jobs:
     - name: Configuração do Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: 14  # ou a versão do Node que você está usando
+        node-version: 14  # ajuste conforme sua necessidade
 
     - name: Cache node modules
       uses: actions/cache@v2
       with:
-        # Caminho para os diretórios que você deseja armazenar em cache.
-        path: ~/.npm
-        # A chave única representa o cache. 
-        # A ideia aqui é gerar uma chave com base no arquivo `package-lock.json` (ou `yarn.lock` se usar Yarn).
-        # Se esse arquivo não mudar, o cache será reutilizado.
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        # Se a chave exata não for encontrada, ele cairá para as chaves listadas no "restore-keys".
+        path: ~/.cache/yarn  # Cache para Yarn
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
-          ${{ runner.os }}-node-
-          
-    - name: Instalar dependências
-      run: |
-        npm ci  # ou use "yarn install" se estiver usando Yarn
+          ${{ runner.os }}-yarn-
+
+    - name: Instalar dependências com Yarn
+      run: yarn install --frozen-lockfile
 
     - name: Realizar o build (Aqui você pode adicionar os passos para realizar o build do seu app)
       run: |

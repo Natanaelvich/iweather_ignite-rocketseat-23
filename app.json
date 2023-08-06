@@ -28,6 +28,12 @@
     },
     "experiments": {
       "tsconfigPaths": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7f537c92-772b-4144-be7b-adc3251ee257"
+      }
+    },
+    "owner": "natanaelvich"
   }
 }

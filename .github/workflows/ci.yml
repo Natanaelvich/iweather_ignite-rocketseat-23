@@ -17,7 +17,7 @@ jobs:
     - name: Configuração do Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: 14  # ajuste conforme sua necessidade
+        node-version: 16  # ajuste conforme sua necessidade
 
     - name: Cache node modules
       uses: actions/cache@v2

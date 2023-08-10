@@ -38,8 +38,7 @@ describe("Screen: Dashboard", () => {
     
     render(<Dashboard />)
 
-    const cityName = await waitFor(() => screen.findByText(/rio do sul/i));
-    expect(cityName).toBeTruthy() 
+    await waitFor(() => expect(screen.findByText(/rio do sul/i, {}, { timeout: 3000 })).toBeTruthy);
   })
 
   it('should be show city weather is night', async () => {
@@ -54,8 +53,7 @@ describe("Screen: Dashboard", () => {
 
     render(<Dashboard />)
 
-    const cityName = await waitFor(() => screen.findByText(/rio do sul/i));
-    expect(cityName).toBeTruthy()
+    await waitFor(() => expect(screen.findByText(/rio do sul/i, {}, { timeout: 3000 })).toBeTruthy);
   })
 
   it('should be show another selected weather city', async () =>{

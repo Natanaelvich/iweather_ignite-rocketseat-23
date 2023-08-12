@@ -1,36 +1,37 @@
-import { mockCityAPIResponse } from "@__tests__/mocks/api/mockCityAPIResponse";
-import { api } from "./api";
-import { getCityByNameService } from "./getCityByNameService";
+import { mockCityAPIResponse } from '@__tests__/mocks/api/mockCityAPIResponse'
 
-describe("Service: getCityByNameService", () => {
-  it("should return city details", async () => {
-    jest.spyOn(api, "get").mockResolvedValue({ data: mockCityAPIResponse });
+import { api } from './api'
+import { getCityByNameService } from './getCityByNameService'
 
-    const response = await getCityByNameService("São Paulo");
+describe('Service: getCityByNameService', () => {
+  it('should return city details', async () => {
+    jest.spyOn(api, 'get').mockResolvedValue({ data: mockCityAPIResponse })
 
-    expect(response.length).toBeGreaterThan(0);
-  });
+    const response = await getCityByNameService('São Paulo')
 
-  it("should return empty array if city is not found", async () => {
-    jest.spyOn(api, "get").mockRejectedValue({});
+    expect(response.length).toBeGreaterThan(0)
+  })
 
-    const response = await getCityByNameService("Cidade que não existe");
+  it('should return empty array if city is not found', async () => {
+    jest.spyOn(api, 'get').mockRejectedValue({})
 
-    expect(response.length).toBe(0);
-  });
+    const response = await getCityByNameService('Cidade que não existe')
 
-  it("should return name withou country if country is not found", async () => {
+    expect(response.length).toBe(0)
+  })
+
+  it('should return name withou country if country is not found', async () => {
     const newMock = {
       ...mockCityAPIResponse,
       sys: {
         country: undefined,
       },
-    };
+    }
 
-    jest.spyOn(api, "get").mockResolvedValue({ data: newMock });
+    jest.spyOn(api, 'get').mockResolvedValue({ data: newMock })
 
-    const response = await getCityByNameService("São Paulo");
+    const response = await getCityByNameService('São Paulo')
 
-    expect(response[0].name).toBe("São Paulo");
-  });
-});
+    expect(response[0].name).toBe('São Paulo')
+  })
+})

@@ -1,7 +1,7 @@
-import { WeatherAPIResponseProps } from "@services/getWeatherByCityService";
+import { WeatherAPIResponseProps } from '@services/getWeatherByCityService'
 
-const currentDay = new Date();
-const nextDay = new Date();
+const currentDay = new Date()
+const nextDay = new Date()
 nextDay.setDate(currentDay.getDate() + 1)
 
 export const mockWeatherAPIResponse: WeatherAPIResponseProps = {
@@ -23,9 +23,9 @@ export const mockWeatherAPIResponse: WeatherAPIResponseProps = {
         {
           description: 'Céu limpo',
           main: 'Clear',
-        }
+        },
       ],
-      dt_txt: nextDay.toDateString()
+      dt_txt: nextDay.toDateString(),
     },
     {
       pop: 0.5,
@@ -44,9 +44,9 @@ export const mockWeatherAPIResponse: WeatherAPIResponseProps = {
         {
           description: 'Céu limpo',
           main: 'Clear',
-        }
+        },
       ],
-      dt_txt: nextDay.toDateString()
+      dt_txt: nextDay.toDateString(),
     },
   ],
-};
+}

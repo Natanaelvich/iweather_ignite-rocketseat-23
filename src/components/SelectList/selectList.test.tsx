@@ -1,23 +1,16 @@
-import { render, screen, fireEvent } from "@testing-library/react-native"
-
 import { SelectList } from '@components/SelectList'
+import { fireEvent, render, screen } from '@testing-library/react-native'
 
-describe("Component: SelectList", () =>{
-  it('should be return city details selected', async() => {
+describe('Component: SelectList', () => {
+  it('should be return city details selected', async () => {
     const data = [
       { id: '1', name: 'Campinas', latitude: 123, longitude: 456 },
-      { id: '2', name: 'Campo grande', latitude: 789, longitude: 487 }
+      { id: '2', name: 'Campo grande', latitude: 789, longitude: 487 },
     ]
 
-    const onPress = jest.fn();
+    const onPress = jest.fn()
 
-    render(
-      <SelectList 
-        data={data}
-        onChange={() =>{}}
-        onPress={onPress}
-      />
-    )
+    render(<SelectList data={data} onPress={onPress} />)
 
     const selectedCity = screen.getByText(/campo/i)
     fireEvent.press(selectedCity)
@@ -26,13 +19,7 @@ describe("Component: SelectList", () =>{
   })
 
   it('not should be show options when data props is empty', () => {
-    render(
-      <SelectList 
-        data={[]}
-        onChange={() => {}}
-        onPress={()=>{}}
-      />
-    )
+    render(<SelectList data={[]} />)
 
     const options = screen.getByTestId('options')
 

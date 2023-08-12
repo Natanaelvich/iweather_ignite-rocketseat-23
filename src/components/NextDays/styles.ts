@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { theme } from '@styles/theme';
+import { theme } from '@styles/theme'
+import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
@@ -10,5 +10,5 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-  }
-});
+  },
+})

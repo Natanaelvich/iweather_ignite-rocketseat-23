@@ -1,25 +1,23 @@
-import { View } from 'react-native';
+import drop from '@assets/drop.svg'
+import rain from '@assets/rain.svg'
+import sun from '@assets/sun.svg'
+import thermometer from '@assets/thermometer.svg'
+import wind from '@assets/wind.svg'
+import { WeatherItem } from '@components/WeatherItem'
+import { View } from 'react-native'
 
-import sun from '@assets/sun.svg';
-import rain from '@assets/rain.svg';
-import wind from '@assets/wind.svg';
-import drop from '@assets/drop.svg';
-import thermometer from '@assets/thermometer.svg';
-
-import { WeatherItem } from '@components/WeatherItem';
-
-import { styles } from './styles';
+import { styles } from './styles'
 
 export interface WeatherDetailsProps {
-  temp_kf: string;
-  humidity: string;
-  feels_like: string;
-  wind_speed: string;
-  probability: string;
+  temp_kf: string
+  humidity: string
+  feels_like: string
+  wind_speed: string
+  probability: string
 }
 
 interface Props {
-  data: WeatherDetailsProps;
+  data: WeatherDetailsProps
 }
 
 export function WeatherDetails({ data }: Props) {
@@ -43,18 +41,9 @@ export function WeatherDetails({ data }: Props) {
         value={data.wind_speed}
       />
 
-      <WeatherItem
-        icon={drop}
-        title="Umidade do ar"
-        value={data.humidity}
-      />
+      <WeatherItem icon={drop} title="Umidade do ar" value={data.humidity} />
 
-      <WeatherItem
-        icon={sun}
-        title="Índice UV"
-        value={data.temp_kf}
-        isLast
-      />
+      <WeatherItem icon={sun} title="Índice UV" value={data.temp_kf} isLast />
     </View>
-  );
+  )
 }

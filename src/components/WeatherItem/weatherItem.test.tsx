@@ -1,17 +1,10 @@
-import { render, screen } from "@testing-library/react-native"
-import { WeatherItem } from "@components/WeatherItem"
-
 import dropIcon from '@assets/drop.svg'
+import { WeatherItem } from '@components/WeatherItem'
+import { render, screen } from '@testing-library/react-native'
 
-describe("Component: WeatherItem", () => {
+describe('Component: WeatherItem', () => {
   it('should be render show title and value', () => {
-    render(
-      <WeatherItem 
-        icon={dropIcon}
-        title="Umidade do ar"
-        value="81%"
-      />
-    )
+    render(<WeatherItem icon={dropIcon} title="Umidade do ar" value="81%" />)
 
     const title = screen.getByText('Umidade do ar')
     const value = screen.getByText('81%')

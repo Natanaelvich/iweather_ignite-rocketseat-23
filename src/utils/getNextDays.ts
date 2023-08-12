@@ -1,16 +1,16 @@
-import dayjs from "dayjs";
+import dayjs from 'dayjs'
 
 export function getNextDays() {
-  const days = [];
-  const today = new Date();
+  const days = []
+  const today = new Date()
 
   for (let i = 0; i < 5; i++) {
-    const date = new Date();
+    const date = new Date()
 
-    date.setDate(today.getDate() + (i + 1));
+    date.setDate(today.getDate() + (i + 1))
 
-    days.push(dayjs(date).format('DD/MM'));
+    days.push(dayjs(date).format('DD/MM'))
   }
 
-  return days;
+  return days
 }

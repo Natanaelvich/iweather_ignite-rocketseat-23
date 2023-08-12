@@ -1,44 +1,47 @@
-import { useEffect, useState } from 'react';
-import { ImageBackground, Text, View, ScrollView } from 'react-native';
+import bg from '@assets/background.png'
+import Logo from '@assets/logo.svg'
+import { SelectList } from '@components/SelectList'
+import { useCity } from '@hooks/useCity'
+import { CityProps, getCityByNameService } from '@services/getCityByNameService'
+import { useEffect, useState } from 'react'
+import { ImageBackground, ScrollView, Text, View } from 'react-native'
 
-import { styles } from './styles';
-import Logo from "@assets/logo.svg";
-import bg from '@assets/background.png';
-
-import { useCity } from '@hooks/useCity';
-import { CityProps, getCityByNameService } from '@services/getCityByNameService';
-
-import { SelectList } from '@components/SelectList';
+import { styles } from './styles'
 
 export function Search() {
-  const [search, setSearch] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [cities, setCities] = useState<CityProps[]>([]);
+  const [search, setSearch] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [cities, setCities] = useState<CityProps[]>([])
 
-  const { handleChanceCity } = useCity();
+  const { handleChanceCity } = useCity()
 
   async function getCities(city: string) {
-    setIsLoading(true);
+    setIsLoading(true)
 
-    const response = await getCityByNameService(city);
+    const response = await getCityByNameService(city)
 
-    setCities(response);
-    setIsLoading(false);
+    setCities(response)
+    setIsLoading(false)
   }
 
   useEffect(() => {
     if (search.trim().length === 0) {
-      return;
+      return
     }
 
-    const debounce = setTimeout(() => getCities(search), 500);
+    const debounce = setTimeout(() => getCities(search), 500)
 
-    return () => clearInterval(debounce);
-  }, [search]);
+    return () => clearInterval(debounce)
+  }, [search])
 
   return (
     <ScrollView>
-      <ImageBackground source={bg} defaultSource={bg} style={styles.container} resizeMode="cover">
+      <ImageBackground
+        source={bg}
+        defaultSource={bg}
+        style={styles.container}
+        resizeMode="cover"
+      >
         <Logo width={186} height={32} />
 
         <View style={styles.content}>
@@ -60,5 +63,5 @@ export function Search() {
         </View>
       </ImageBackground>
     </ScrollView>
-  );
+  )
 }

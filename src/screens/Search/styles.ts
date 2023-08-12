@@ -1,7 +1,7 @@
-import { theme } from '@styles/theme';
-import { Dimensions, StyleSheet } from 'react-native';
+import { theme } from '@styles/theme'
+import { Dimensions, StyleSheet } from 'react-native'
 
-const dimensions = Dimensions.get('window');
+const dimensions = Dimensions.get('window')
 
 export const styles = StyleSheet.create({
   container: {
@@ -15,16 +15,16 @@ export const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     justifyContent: 'center',
-    paddingBottom: 56
+    paddingBottom: 56,
   },
   title: {
     fontSize: 20,
     fontFamily: theme.fonts.bold,
     color: theme.colors.white,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   brand: {
-    color: theme.colors.blue_light
+    color: theme.colors.blue_light,
   },
   subtitle: {
     fontSize: 14,
@@ -36,5 +36,5 @@ export const styles = StyleSheet.create({
   },
   scroll: {
     backgroundColor: theme.colors.gray_900,
-  }
-});
+  },
+})

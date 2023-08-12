@@ -12,12 +12,11 @@ export const theme = {
     gray_300: '#ABABC4',
     gray_200: '#BFBFD4',
     gray_100: '#FAFAFA',
-
   },
 
   fonts: {
     regular: 'Nunito_400Regular',
     bold: 'Nunito_700Bold',
     extra_bold: 'Nunito_800ExtraBold',
-  }
-};
+  },
+}

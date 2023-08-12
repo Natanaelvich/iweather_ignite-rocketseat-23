@@ -1,15 +1,13 @@
-import { act, screen, waitFor } from "@testing-library/react-native"
-import { Routes } from "@routes/index"
-import { saveStorageCity } from "@libs/asyncStorage/cityStorage"
-import { render } from "@__tests__/utils/customRender"
-import { api } from "@services/api"
-import { mockWeatherAPIResponse } from "@__tests__/mocks/api/mockWeatherAPIResponse"
+import { mockWeatherAPIResponse } from '@__tests__/mocks/api/mockWeatherAPIResponse'
+import { render } from '@__tests__/utils/customRender'
+import { saveStorageCity } from '@libs/asyncStorage/cityStorage'
+import { Routes } from '@routes/index'
+import { api } from '@services/api'
+import { act, screen, waitFor } from '@testing-library/react-native'
 
-describe("Routes", () => {
+describe('Routes', () => {
   it('should be render Search screen when not city selecte', async () => {
-    render(
-      <Routes />
-    )
+    render(<Routes />)
 
     const title = await waitFor(() => screen.findByText(/^escolha um local/i))
 
@@ -23,7 +21,7 @@ describe("Routes", () => {
       id: '1',
       name: 'São Paulo',
       latitude: 123,
-      longitude: 456
+      longitude: 456,
     }
 
     await saveStorageCity(city)

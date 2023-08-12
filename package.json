@@ -9,7 +9,9 @@
     "web": "expo start --web",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx && tsc --noEmit",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix && tsc --noEmit"
   },
   "dependencies": {
     "@expo-google-fonts/nunito": "^0.2.3",

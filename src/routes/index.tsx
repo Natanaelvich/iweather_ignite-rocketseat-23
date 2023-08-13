@@ -1,3 +1,4 @@
+import { Update } from '@components/Update'
 import { useCity } from '@hooks/useCity'
 import { NavigationContainer } from '@react-navigation/native'
 import { Dashboard } from '@screens/Dashboard'
@@ -19,6 +20,7 @@ export function Routes() {
         backgroundColor: theme.colors.gray_900,
       }}
     >
+      <Update />
       <NavigationContainer>
         {city ? <Dashboard /> : <AppRoutes />}
       </NavigationContainer>

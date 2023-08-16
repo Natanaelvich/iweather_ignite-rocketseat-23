@@ -1,10 +1,15 @@
 build:
-  name: Run tests
+  name: Run tests and build
   steps:
     - eas/checkout
+    - eas/use_npm_token
     - eas/install_node_modules
     - run:
         name: Unit tests
         command: |
           echo "Running tests..."
           yarn test
+    - eas/prebuild
+    - eas/run_gradle
+    - eas/find_and_upload_build_artifacts
+   

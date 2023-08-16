@@ -1,0 +1,10 @@
+build:
+  name: Run tests
+  steps:
+    - eas/checkout
+    - eas/install_node_modules
+    - run:
+        name: Unit tests
+        command: |
+          echo "Running tests..."
+          yarn test
